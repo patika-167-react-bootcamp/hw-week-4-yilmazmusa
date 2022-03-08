@@ -6,7 +6,17 @@ import axios from 'axios';
 
 
 
+
 import { Box, Typography, Button } from '@mui/material';
+
+
+
+export interface TodoAddInterface {
+	title: string;
+	categoryId: number;
+	statusId: number;
+}
+
 
 export interface TodoInterface {
 	id: number;
@@ -17,13 +27,6 @@ export interface TodoInterface {
 	updatedAt: string;
 	createdAt: string;
 }
-
-export interface TodoAddInterface {
-	title: string;
-	categoryId: number;
-	statusId: number;
-}
-
 export interface TodoGetInterface {
 	apiToken: string;
 }

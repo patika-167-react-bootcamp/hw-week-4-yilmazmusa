@@ -1,17 +1,11 @@
+import React, { useState } from "react";
+import { Register } from "..//..//App";
 
-import React, { useState } from 'react';
-import { Login, Register } from './App';
-
-
-
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-
-
-
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 
 interface FormElements extends HTMLFormControlsCollection {
 	usernameInput: HTMLInputElement;
@@ -19,19 +13,14 @@ interface FormElements extends HTMLFormControlsCollection {
 	passwordConfirmInput: HTMLInputElement;
 }
 
-
-
 interface UserFormElements extends HTMLFormElement {
 	readonly elements: FormElements;
 }
-
 
 interface LoginRegisterProps {
 	onLogin: (formData: Login) => void;
 	onRegister: (formData: Register) => void;
 }
-
-
 
 interface TabPanelProps {
 	children?: React.ReactNode;
@@ -44,7 +33,6 @@ function TabPanel(props: TabPanelProps) {
 
 	return (
 		<div
-
 			role="tabpanel"
 			hidden={value !== index}
 			id={`simple-tabpanel-${index}`}
@@ -58,81 +46,68 @@ function TabPanel(props: TabPanelProps) {
 			)}
 		</div>
 	);
-
 }
 
 function a11yProps(index: number) {
 	return {
 		id: `simple-tab-${index}`,
-		'aria-controls': `simple-tabpanel-${index}`,
+		"aria-controls": `simple-tabpanel-${index}`,
 	};
 }
 
-
 function LoginRegister({ onLogin, onRegister }: LoginRegisterProps) {
-
-
 	const [tabValue, setTabValue] = useState(0);
-
 
 	const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
 		setTabValue(newValue);
 	};
 
 	const handleLoginSubmit = (event: React.FormEvent<UserFormElements>) => {
-
 		event.preventDefault();
-
-
 
 		const username = event.currentTarget.elements.usernameInput;
 
 		const password = event.currentTarget.elements.passwordInput;
 
-		
 		onLogin({ username: username.value, password: password.value });
 
-	
-		username.value = '';
-		password.value = '';
+		username.value = "";
+		password.value = "";
 	};
 
 	const handleRegisterSubmit = (event: React.FormEvent<UserFormElements>) => {
-	
-
 		event.preventDefault();
 
-	
 		const username = event.currentTarget.elements.usernameInput;
 		const password = event.currentTarget.elements.passwordInput;
 		const passwordConfirm = event.currentTarget.elements.passwordConfirmInput;
 
-	
-
-        
 		onRegister({
 			username: username.value,
 			password: password.value,
 			passwordConfirm: passwordConfirm.value,
 		});
 
-		
-		username.value = '';
-		password.value = '';
-		passwordConfirm.value = '';
+		username.value = "";
+		password.value = "";
+		passwordConfirm.value = "";
 	};
-
 
 	return (
 		<Box
 			sx={{
-				maxWidth: '100%',
-				width: '100%',
+				maxWidth: "100%",
+
+
+
+
+
+				width: "100%",
 				p: 2,
-				boxSizing: 'border-box',
+				boxSizing: "border-box",
 			}}
 		>
-			<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+			<Box sx={{ borderBottom: 1, borderColor: "divider" }}>
 				<Tabs
 					value={tabValue}
 					onChange={handleTabChange}
@@ -145,7 +120,7 @@ function LoginRegister({ onLogin, onRegister }: LoginRegisterProps) {
 			<TabPanel value={tabValue} index={0}>
 				<form autoComplete="off" onSubmit={handleLoginSubmit}>
 					<TextField
-						sx={{ display: 'flex', width: '25ch', mb: 1 }}
+						sx={{ display: "flex", width: "25ch", mb: 1 }}
 						id="usernameInput"
 						name="usernameInput"
 						label="Kullanici Ismi"
@@ -153,7 +128,7 @@ function LoginRegister({ onLogin, onRegister }: LoginRegisterProps) {
 						required
 					/>
 					<TextField
-						sx={{ display: 'flex', width: '25ch', mb: 1 }}
+						sx={{ display: "flex", width: "25ch", mb: 1 }}
 						id="passwordInput"
 						name="passwordInput"
 						label="Sifre"
@@ -170,7 +145,7 @@ function LoginRegister({ onLogin, onRegister }: LoginRegisterProps) {
 			<TabPanel value={tabValue} index={1}>
 				<form autoComplete="off" onSubmit={handleRegisterSubmit}>
 					<TextField
-						sx={{ display: 'flex', width: '25ch', mb: 1 }}
+						sx={{ display: "flex", width: "25ch", mb: 1 }}
 						id="usernameInput"
 						name="usernameInput"
 						label="Kullanici Ismi"
@@ -178,7 +153,7 @@ function LoginRegister({ onLogin, onRegister }: LoginRegisterProps) {
 						required
 					/>
 					<TextField
-						sx={{ display: 'flex', width: '25ch', mb: 1 }}
+						sx={{ display: "flex", width: "25ch", mb: 1 }}
 						id="passwordInput"
 						name="passwordInput"
 						label="Sifre"
@@ -188,7 +163,7 @@ function LoginRegister({ onLogin, onRegister }: LoginRegisterProps) {
 						required
 					/>
 					<TextField
-						sx={{ display: 'flex', width: '25ch', mb: 1 }}
+						sx={{ display: "flex", width: "25ch", mb: 1 }}
 						id="passwordConfirmInput"
 						name="passwordConfirmInput"
 						label="Sifre Tekrari"
