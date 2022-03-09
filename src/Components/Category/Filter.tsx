@@ -65,7 +65,6 @@ function Filter({ onSubmit, categoryList, onCategoryChange }: TodoProps) {
   return (
     <Box component="div" sx={{ width: "100%", mt: 10, mb: 10 }}>
       <Typography variant="h2" gutterBottom component="h1">
-        Filtrele (CALISMIYOR)
       </Typography>
       <Box
         component="form"
